@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Gamer Social</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="auth-container" id="auth-container">
+  <form id="signup-form">
+    <h2>Registrarse</h2>
+    <input type="email" id="signup-email" placeholder="Email" required>
+    <input type="password" id="signup-password" placeholder="Contraseña (mínimo 6 caracteres)" minlength="6" required>
+    <button type="submit">Crear cuenta</button>
+    <p>¿Ya tienes cuenta? <a href="#" id="to-login">Iniciar sesión</a></p>
+    <div class="error" id="signup-error"></div>
+  </form>
+
+  <form id="login-form" class="hidden">
+    <h2>Iniciar Sesión</h2>
+    <input type="email" id="login-email" placeholder="Email" required>
+    <input type="password" id="login-password" placeholder="Contraseña" required>
+    <button type="submit">Entrar</button>
+    <p>¿No tienes cuenta? <a href="#" id="to-signup">Registrarse</a></p>
+    <div class="error" id="login-error"></div>
+  </form>
+</div>
+
+<div class="app-container hidden" id="app-container">
+  <div class="sidebar">
+    <h2>Gamer Social</h2>
+    <div id="user-info"><img id="user-pic"><span id="user-name"></span></div>
+    <nav>
+      <a href="#" class="active" id="menu-feed">Feed</a>
+      <a href="#" id="menu-profile">Perfil</a>
+    </nav>
+    <button id="btn-logout">Cerrar sesión</button>
+  </div>
+
+  <div class="main">
+    <section id="feed-section">
+      <form id="postForm">
+        <textarea id="postText" placeholder="¿Qué estás pensando?" required></textarea>
+        <input type="file" id="postImage" accept="image/*">
+        <button type="submit">Publicar</button>
+      </form>
+      <div id="feed"></div>
+    </section>
+
+    <section id="profile-section" class="hidden">
+      <h2>Tu Perfil</h2>
+      <input type="file" id="avatarInput" accept="image/*">
+      <button id="btn-change-avatar">Cambiar avatar</button>
+    </section>
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
